@@ -1,16 +1,21 @@
 function toggleMenu() {
   const menu = document.querySelector(".menu-links");
   const icon = document.querySelector(".hamburger-icon");
+  if (!menu || !icon) return;
   menu.classList.toggle("open");
   icon.classList.toggle("open");
 }
 
 const THEME_STORAGE_KEY = "portfolio-theme";
+const LIGHT_THEME = "light";
+const DARK_THEME = "dark";
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
 function setTheme(theme) {
   document.body.setAttribute("data-theme", theme);
-  const isLight = theme === "light";
+  const isLight = theme === LIGHT_THEME;
 
   themeToggleButtons.forEach((button) => {
     const icon = button.querySelector("i");
@@ -27,21 +32,38 @@ function setTheme(theme) {
   });
 }
 
-const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-setTheme(savedTheme || (prefersLight ? "light" : "dark"));
+function getSavedTheme() {
+  try {
+    return localStorage.getItem(THEME_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+  }
+}
+
+const prefersLightQuery = window.matchMedia("(prefers-color-scheme: light)");
+const savedTheme = getSavedTheme();
+setTheme(savedTheme || (prefersLightQuery.matches ? LIGHT_THEME : DARK_THEME));
 
 themeToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const currentTheme = document.body.getAttribute("data-theme") || "dark";
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    const currentTheme = document.body.getAttribute("data-theme") || DARK_THEME;
+    const nextTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
     setTheme(nextTheme);
-    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    saveTheme(nextTheme);
   });
 });
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+prefersLightQuery.addEventListener("change", (event) => {
+  if (getSavedTheme()) return;
+  setTheme(event.matches ? LIGHT_THEME : DARK_THEME);
+});
 
 sections.forEach((section) => {
   section.classList.add("reveal");
@@ -52,6 +74,7 @@ const revealObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        revealObserver.unobserve(entry.target);
       }
     });
   },

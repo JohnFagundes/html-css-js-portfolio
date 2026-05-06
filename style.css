@@ -3,8 +3,6 @@
 :root {
   --bg: #0f172a;
   --bg-soft: #111827;
-  --surface: rgba(17, 24, 39, 0.72);
-  --surface-solid: #111827;
   --surface-card: rgba(15, 23, 42, 0.85);
   --text: #f8fafc;
   --text-muted: #94a3b8;
@@ -26,8 +24,6 @@
 body[data-theme="light"] {
   --bg: #f8fafc;
   --bg-soft: #e2e8f0;
-  --surface: rgba(248, 250, 252, 0.9);
-  --surface-solid: #ffffff;
   --surface-card: rgba(255, 255, 255, 0.95);
   --text: #0f172a;
   --text-muted: #334155;
@@ -60,10 +56,15 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
   color: var(--text);
+  color-scheme: dark;
   background:
     radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 30%),
     radial-gradient(circle at 85% 15%, rgba(14, 165, 233, 0.16), transparent 32%),
     linear-gradient(160deg, var(--bg) 0%, var(--bg-soft) 100%);
+}
+
+body[data-theme="light"] {
+  color-scheme: light;
 }
 
 p {

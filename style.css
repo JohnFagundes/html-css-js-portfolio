@@ -210,8 +210,25 @@ section {
 }
 
 .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  width: 2rem;
   height: 2rem;
+  font-size: 1.45rem;
+  color: #cbefff;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* PROFILE SECTION */
@@ -404,6 +421,12 @@ section {
   right: -2.2rem;
   bottom: 2.5rem;
   opacity: 0.65;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.arrow:hover {
+  opacity: 1;
+  transform: translateY(2px);
 }
 
 /* EXPERIENCE */
@@ -453,6 +476,8 @@ article .icon {
   cursor: default;
   width: 1.2rem;
   height: 1.2rem;
+  font-size: 1.2rem;
+  color: var(--success);
 }
 
 article h3 {
@@ -529,10 +554,13 @@ article p {
 
 .contact-icon {
   cursor: default;
+  color: #e2e8f0;
 }
 
 .email-icon {
+  width: 2.3rem;
   height: 2.3rem;
+  font-size: 1.55rem;
 }
 
 /* FOOTER */

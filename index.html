@@ -12,6 +12,10 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
 </head>
@@ -61,10 +65,12 @@
         </button>
       </div>
       <div id="socials-container">
-        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" loading="lazy" decoding="async"
-          onclick="location.href='https://linkedin.com/in/joaovictorfagundes'" />
-        <img src="./assets/github.png" alt="My Github profile" class="icon" loading="lazy" decoding="async"
-          onclick="location.href='https://github.com/JohnFagundes'" />
+        <button class="icon-btn" aria-label="Meu perfil no LinkedIn" onclick="location.href='https://linkedin.com/in/joaovictorfagundes'">
+          <i class="fa-brands fa-linkedin icon" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn" aria-label="Meu perfil no GitHub" onclick="location.href='https://github.com/JohnFagundes'">
+          <i class="fa-brands fa-github icon" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -92,12 +98,12 @@
         </div>
         <div class="about-containers">
           <div class="details-container">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+            <i class="fa-solid fa-briefcase icon" aria-hidden="true"></i>
             <h3>Experiencia</h3>
             <p>3 anos <br />Desenvolvedor FullStack</p>
           </div>
           <div class="details-container">
-            <img src="./assets/education.png" alt="Education icon" class="icon" loading="lazy" decoding="async" />
+            <i class="fa-solid fa-graduation-cap icon" aria-hidden="true"></i>
             <h3>Escolaridade</h3>
             <ul>
               <li>Bacharel em Sistema de Informação</li>
@@ -107,7 +113,9 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" loading="lazy" decoding="async" onclick="location.href='./#experience'" />
+    <button class="icon-btn arrow" aria-label="Ir para experiência" onclick="location.href='./#experience'">
+      <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
+    </button>
   </section>
   <section id="experience">
     <p class="section__text__p1">Explore Minha</p>
@@ -118,42 +126,42 @@
           <h2 class="experience-sub-title">Front-end</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>React.js</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>TypeScript</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Vite</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Tailwind CSS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Zustand</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>React Hook Form + Zod</h3>
                 <p>Experiente</p>
@@ -165,42 +173,42 @@
           <h2 class="experience-sub-title">Backend</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>PostgreSQL</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Node JS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Mongodb</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>AWS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>No SQL</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
+              <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Banco de Dados</h3>
                 <p>Experiente</p>
@@ -210,7 +218,9 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    <button class="icon-btn arrow" aria-label="Ir para projetos" onclick="location.href='./#projects'">
+      <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
+    </button>
   </section>
   <section id="projects">
     <p class="section__text__p1">Teste Meus Recentes</p>
@@ -265,18 +275,20 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" loading="lazy" decoding="async" onclick="location.href='./#contact'" />
+    <button class="icon-btn arrow" aria-label="Ir para contato" onclick="location.href='./#contact'">
+      <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
+    </button>
   </section>
   <section id="contact">
     <p class="section__text__p1">Entre em contato</p>
     <h1 class="title">Me Contate</h1>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
-        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" loading="lazy" decoding="async" />
+        <i class="fa-solid fa-envelope icon contact-icon email-icon" aria-hidden="true"></i>
         <p><a href="mailto:jvfagundes329@gmail.com">jvfagundes329@gmail.com</a></p>
       </div>
       <div class="contact-info-container">
-        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" loading="lazy" decoding="async" />
+        <i class="fa-brands fa-linkedin icon contact-icon" aria-hidden="true"></i>
         <p><a href="https://www.linkedin.com/in/joaovictorfagundes">LinkedIn</a></p>
       </div>
     </div>

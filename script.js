@@ -12,9 +12,10 @@ const DARK_THEME = "dark";
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const rootElement = document.documentElement;
 
 function setTheme(theme) {
-  document.body.setAttribute("data-theme", theme);
+  rootElement.setAttribute("data-theme", theme);
   const isLight = theme === LIGHT_THEME;
 
   themeToggleButtons.forEach((button) => {
@@ -53,7 +54,7 @@ setTheme(savedTheme || (prefersLightQuery.matches ? LIGHT_THEME : DARK_THEME));
 
 themeToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const currentTheme = document.body.getAttribute("data-theme") || DARK_THEME;
+    const currentTheme = rootElement.getAttribute("data-theme") || DARK_THEME;
     const nextTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
     setTheme(nextTheme);
     saveTheme(nextTheme);
@@ -69,32 +70,44 @@ sections.forEach((section) => {
   section.classList.add("reveal");
 });
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-);
-
-sections.forEach((section) => revealObserver.observe(section));
-
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-
-      const activeId = `#${entry.target.id}`;
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === activeId);
+function initObservers() {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          revealObserver.unobserve(entry.target);
+        }
       });
-    });
-  },
-  { threshold: 0.35, rootMargin: "-20% 0px -45% 0px" },
-);
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+  );
 
-sections.forEach((section) => navObserver.observe(section));
+  sections.forEach((section) => revealObserver.observe(section));
+
+  let currentActiveId = "";
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const activeId = `#${entry.target.id}`;
+        if (activeId === currentActiveId) return;
+        currentActiveId = activeId;
+
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === activeId);
+        });
+      });
+    },
+    { threshold: 0.35, rootMargin: "-20% 0px -45% 0px" },
+  );
+
+  sections.forEach((section) => navObserver.observe(section));
+}
+
+if ("requestIdleCallback" in window) {
+  requestIdleCallback(initObservers, { timeout: 800 });
+} else {
+  setTimeout(initObservers, 0);
+}

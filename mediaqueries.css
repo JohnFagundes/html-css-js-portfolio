@@ -145,4 +145,10 @@
   .btn-container {
     width: 100%;
   }
+
+  .details-container,
+  .text-container,
+  .contact-info-upper-container {
+    box-shadow: none;
+  }
 }

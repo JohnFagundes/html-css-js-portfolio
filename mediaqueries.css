@@ -45,6 +45,10 @@
   .about-containers {
     margin-top: 0;
   }
+
+  #about .about-containers {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -99,5 +103,9 @@
   }
   .text-container {
     text-align: justify;
+  }
+
+  #about .text-container {
+    padding: 1.1rem;
   }
 }

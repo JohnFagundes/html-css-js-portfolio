@@ -344,13 +344,23 @@ section {
 
 article {
   display: flex;
-  width: 10rem;
-  justify-content: space-around;
+  align-items: center;
+  width: 14rem;
+  justify-content: flex-start;
   gap: 0.5rem;
 }
 
 article .icon {
   cursor: default;
+}
+
+.article-container article div {
+  text-align: left;
+}
+
+.article-container article h3,
+.article-container article p {
+  margin: 0;
 }
 
 /* PROJECTS SECTION */

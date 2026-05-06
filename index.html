@@ -6,6 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+  />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
 </head>
@@ -40,7 +46,7 @@
   </nav>
   <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+      <img src="./assets/profile-pic.png" alt="John Doe profile picture" decoding="async" fetchpriority="high" />
     </div>
     <div class="section__text">
       <p class="section__text__p1">Olar, me chamo</p>
@@ -55,9 +61,9 @@
         </button>
       </div>
       <div id="socials-container">
-        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
+        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" loading="lazy" decoding="async"
           onclick="location.href='https://linkedin.com/in/joaovictorfagundes'" />
-        <img src="./assets/github.png" alt="My Github profile" class="icon"
+        <img src="./assets/github.png" alt="My Github profile" class="icon" loading="lazy" decoding="async"
           onclick="location.href='https://github.com/JohnFagundes'" />
       </div>
     </div>
@@ -67,7 +73,7 @@
     <h1 class="title">Sobre mim</h1>
     <div class="section-container">
       <div class="section__pic-container">
-        <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic" />
+        <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic" loading="lazy" decoding="async" />
       </div>
       <div class="about-details-container">
         <div class="text-container">
@@ -89,12 +95,12 @@
         </div>
         <div class="about-containers">
           <div class="details-container">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+            <img src="./assets/experience.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
             <h3>Experiencia</h3>
             <p>3 anos <br />Desenvolvedor FullStack</p>
           </div>
           <div class="details-container">
-            <img src="./assets/education.png" alt="Education icon" class="icon" />
+            <img src="./assets/education.png" alt="Education icon" class="icon" loading="lazy" decoding="async" />
             <h3>Escolaridade</h3>
             <ul>
               <li>Bacharel em Sistema de Informação</li>
@@ -104,7 +110,7 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" loading="lazy" decoding="async" onclick="location.href='./#experience'" />
   </section>
   <section id="experience">
     <p class="section__text__p1">Explore Minha</p>
@@ -115,42 +121,42 @@
           <h2 class="experience-sub-title">Front-end</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>React.js</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>TypeScript</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Vite</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Tailwind CSS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Zustand</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>React Hook Form + Zod</h3>
                 <p>Experiente</p>
@@ -162,42 +168,42 @@
           <h2 class="experience-sub-title">Backend</h2>
           <div class="article-container">
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>PostgreSQL</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Node JS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Mongodb</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>AWS</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>No SQL</h3>
                 <p>Experiente</p>
               </div>
             </article>
             <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" loading="lazy" decoding="async" />
               <div>
                 <h3>Banco de Dados</h3>
                 <p>Experiente</p>
@@ -216,7 +222,7 @@
       <div class="about-containers">
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
+            <img src="./assets/project-1.png" alt="Project 1" class="project-img" loading="lazy" decoding="async" />
           </div>
           <h2 class="experience-sub-title project-title">Gestor De Cobranças</h2>
           <div class="btn-container">
@@ -232,7 +238,7 @@
         </div>
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./assets/Captura de Tela (516).png" alt="Project 2" class="project-img" />
+            <img src="./assets/Captura de Tela (516).png" alt="Project 2" class="project-img" loading="lazy" decoding="async" />
           </div>
           <h2 class="experience-sub-title project-title">Site de Imobiliaria</h2>
           <div class="btn-container">
@@ -246,7 +252,7 @@
         </div>
         <div class="details-container color-container">
           <div class="article-container">
-            <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
+            <img src="./assets/project-2.png" alt="Project 2" class="project-img" loading="lazy" decoding="async" />
           </div>
           <h2 class="experience-sub-title project-title">Cubos Flix</h2>
           <div class="btn-container">
@@ -262,18 +268,18 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" loading="lazy" decoding="async" onclick="location.href='./#contact'" />
   </section>
   <section id="contact">
     <p class="section__text__p1">Entre em contato</p>
     <h1 class="title">Me Contate</h1>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
-        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" loading="lazy" decoding="async" />
         <p><a href="mailto:jvfagundes329@gmail.com">jvfagundes329@gmail.com</a></p>
       </div>
       <div class="contact-info-container">
-        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" loading="lazy" decoding="async" />
         <p><a href="https://www.linkedin.com/in/joaovictorfagundes">LinkedIn</a></p>
       </div>
     </div>
@@ -291,7 +297,7 @@
     </nav>
     <p>Copyright &#169; 2023 João Victor. All Rights Reserved.</p>
   </footer>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

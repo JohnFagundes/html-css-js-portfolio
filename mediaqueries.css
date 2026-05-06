@@ -1,7 +1,8 @@
 @media screen and (max-width: 1400px) {
   #profile {
-    height: 83vh;
-    margin-bottom: 6rem;
+    min-height: auto;
+    padding-top: 3rem;
+    margin-bottom: 2rem;
   }
   .about-containers {
     flex-wrap: wrap;
@@ -9,6 +10,10 @@
   #contact,
   #projects {
     height: fit-content;
+  }
+
+  .arrow {
+    right: -0.8rem;
   }
 }
 
@@ -18,10 +23,19 @@
   }
   #hamburger-nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 1rem auto 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(10px);
   }
   #experience,
   .experience-details-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   #profile,
   .section-container {
@@ -35,11 +49,12 @@
     height: fit-content;
   }
   section {
-    margin: 0 5%;
+    width: min(1200px, calc(100% - 2rem));
+    margin: 0 auto;
   }
   .section__pic-container {
-    width: 275px;
-    height: 275px;
+    width: 280px;
+    height: 280px;
     margin: 0 auto 2rem;
   }
   .about-containers {
@@ -49,19 +64,28 @@
   #about .about-containers {
     grid-template-columns: 1fr;
   }
+
+  #profile .section__text,
+  #profile .title,
+  #socials-container,
+  .btn-container {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 600px) {
   #contact,
   footer {
-    height: 40vh;
+    height: auto;
   }
   #profile {
-    height: 83vh;
+    min-height: auto;
     margin-bottom: 0;
   }
   article {
     font-size: 1rem;
+    width: 100%;
   }
   footer nav {
     height: fit-content;
@@ -80,10 +104,10 @@
     font-size: 1rem;
   }
   .experience-sub-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   .logo {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .nav-links {
     flex-direction: column;
@@ -91,21 +115,34 @@
     text-align: center;
   }
   .section__pic-container {
-    width: auto;
-    height: 46vw;
+    width: min(260px, 75vw);
+    height: min(260px, 75vw);
     justify-content: center;
   }
   .section__text__p2 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   .title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .text-container {
-    text-align: justify;
+    text-align: left;
   }
 
   #about .text-container {
     padding: 1.1rem;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn-container {
+    width: 100%;
   }
 }

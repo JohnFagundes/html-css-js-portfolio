@@ -142,6 +142,12 @@ nav,
   display: none;
 }
 
+.mobile-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .hamburger-menu {
   position: relative;
   display: inline-block;
@@ -610,7 +616,8 @@ footer p {
   color: var(--text-muted);
 }
 
-.theme-toggle {
+.theme-toggle,
+.lang-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -626,12 +633,14 @@ footer p {
   transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.lang-toggle:hover {
   transform: translateY(-1px);
   border-color: var(--border-strong);
 }
 
-.theme-toggle i {
+.theme-toggle i,
+.lang-toggle i {
   color: var(--accent);
 }
 

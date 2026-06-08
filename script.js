@@ -28,7 +28,12 @@ function setTheme(theme) {
     }
 
     if (label) {
-      label.textContent = isLight ? "Modo Escuro" : "Modo Claro";
+      const translate = window.i18n?.t;
+      label.textContent = translate
+        ? translate(isLight ? "theme.dark" : "theme.light")
+        : isLight
+          ? "Modo Escuro"
+          : "Modo Claro";
     }
   });
 }
@@ -49,8 +54,11 @@ function saveTheme(theme) {
 }
 
 const prefersLightQuery = window.matchMedia("(prefers-color-scheme: light)");
-const savedTheme = getSavedTheme();
-setTheme(savedTheme || (prefersLightQuery.matches ? LIGHT_THEME : DARK_THEME));
+
+function initTheme() {
+  const savedTheme = getSavedTheme();
+  setTheme(savedTheme || (prefersLightQuery.matches ? LIGHT_THEME : DARK_THEME));
+}
 
 themeToggleButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -65,6 +73,13 @@ prefersLightQuery.addEventListener("change", (event) => {
   if (getSavedTheme()) return;
   setTheme(event.matches ? LIGHT_THEME : DARK_THEME);
 });
+
+document.addEventListener("languagechange", () => {
+  const currentTheme = rootElement.getAttribute("data-theme") || DARK_THEME;
+  setTheme(currentTheme);
+});
+
+document.addEventListener("DOMContentLoaded", initTheme);
 
 sections.forEach((section) => {
   section.classList.add("reveal");

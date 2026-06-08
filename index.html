@@ -23,6 +23,11 @@
         if (theme) {
           document.documentElement.setAttribute("data-theme", theme);
         }
+        var lang = localStorage.getItem("portfolio-lang");
+        if (lang) {
+          document.documentElement.setAttribute("data-lang", lang);
+          document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+        }
       } catch (error) {
       }
     })();
@@ -36,14 +41,20 @@
     <div class="logo">João Victor Fagundes</div>
     <div>
       <ul class="nav-links">
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#experience">Experiencia</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Contato</a></li>
+        <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projetos</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contato</a></li>
         <li>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
+          <button class="lang-toggle" type="button" data-lang-toggle data-i18n-aria="lang.aria" aria-label="Mudar para inglês">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span data-i18n="lang.label">EN</span>
+          </button>
+        </li>
+        <li>
+          <button class="theme-toggle" type="button" data-theme-toggle data-i18n-aria="theme.aria" aria-label="Alternar tema">
             <i class="fa-solid fa-moon" aria-hidden="true"></i>
-            <span>Tema</span>
+            <span>Modo Claro</span>
           </button>
         </li>
       </ul>
@@ -51,10 +62,16 @@
   </nav>
   <nav id="hamburger-nav">
     <div class="logo">João Victor</div>
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-      <span>Tema</span>
-    </button>
+    <div class="mobile-nav-actions">
+      <button class="lang-toggle" type="button" data-lang-toggle data-i18n-aria="lang.aria" aria-label="Mudar para inglês">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <span data-i18n="lang.label">EN</span>
+      </button>
+      <button class="theme-toggle" type="button" data-theme-toggle data-i18n-aria="theme.aria" aria-label="Alternar tema">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <span>Modo Claro</span>
+      </button>
+    </div>
     <div class="hamburger-menu">
       <div class="hamburger-icon" onclick="toggleMenu()">
         <span></span>
@@ -62,197 +79,197 @@
         <span></span>
       </div>
       <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">Sobre</a></li>
-        <li><a href="#experience" onclick="toggleMenu()">Experiencia</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projetos</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contato</a></li>
+        <li><a href="#about" onclick="toggleMenu()" data-i18n="nav.about">Sobre</a></li>
+        <li><a href="#experience" onclick="toggleMenu()" data-i18n="nav.experience">Experiencia</a></li>
+        <li><a href="#projects" onclick="toggleMenu()" data-i18n="nav.projects">Projetos</a></li>
+        <li><a href="#contact" onclick="toggleMenu()" data-i18n="nav.contact">Contato</a></li>
       </div>
     </div>
   </nav>
   <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/about-pic.jpg" alt="John Doe profile picture" decoding="async" fetchpriority="high" />
+      <img src="./assets/about-pic.jpg" data-i18n-alt="profile.imgAlt" alt="Foto de perfil de João Victor" decoding="async" fetchpriority="high" />
     </div>
     <div class="section__text">
-      <p class="section__text__p1">Olar, me chamo</p>
+      <p class="section__text__p1" data-i18n="profile.greeting">Olar, me chamo</p>
       <h1 class="title">João Victor</h1>
-      <p class="section__text__p2">Desenvolvedor Full Stack</p>
+      <p class="section__text__p2" data-i18n="profile.role">Desenvolvedor Full Stack</p>
       <div class="btn-container">
-        <button class="btn btn-color-2" onclick="window.open('./assets/CV João Victor.pdf')">
-          Dowload CV
+        <button id="cv-download-btn" class="btn btn-color-2" type="button" data-i18n="profile.downloadCV">
+          Download CV
         </button>
-        <button class="btn btn-color-1" onclick="location.href='./#contact'">
+        <button class="btn btn-color-1" onclick="location.href='./#contact'" data-i18n="profile.contactInfo">
           Contact Info
         </button>
       </div>
       <div id="socials-container">
-        <button class="icon-btn" aria-label="Meu perfil no LinkedIn" onclick="location.href='https://linkedin.com/in/joaovictorfagundes'">
+        <button class="icon-btn" data-i18n-aria="profile.linkedin" aria-label="Meu perfil no LinkedIn" onclick="location.href='https://linkedin.com/in/joaovictorfagundes'">
           <i class="fa-brands fa-linkedin icon" aria-hidden="true"></i>
         </button>
-        <button class="icon-btn" aria-label="Meu perfil no GitHub" onclick="location.href='https://github.com/JohnFagundes'">
+        <button class="icon-btn" data-i18n-aria="profile.github" aria-label="Meu perfil no GitHub" onclick="location.href='https://github.com/JohnFagundes'">
           <i class="fa-brands fa-github icon" aria-hidden="true"></i>
         </button>
       </div>
     </div>
   </section>
   <section id="about">
-    <p class="section__text__p1">Saiba mais</p>
-    <h1 class="title">Sobre mim</h1>
+    <p class="section__text__p1" data-i18n="about.subtitle">Saiba mais</p>
+    <h1 class="title" data-i18n="about.title">Sobre mim</h1>
     <div class="section-container">
       <div class="about-details-container">
         <div class="about-containers">
           <div class="details-container">
             <i class="fa-solid fa-briefcase icon" aria-hidden="true"></i>
-            <h3>Experiencia</h3>
-            <p>3 anos <br />Desenvolvedor FullStack</p>
+            <h3 data-i18n="about.experience">Experiencia</h3>
+            <p data-i18n-html="about.experienceDesc">3 anos <br />Desenvolvedor FullStack</p>
           </div>
           <div class="details-container">
             <i class="fa-solid fa-graduation-cap icon" aria-hidden="true"></i>
-            <h3>Escolaridade</h3>
+            <h3 data-i18n="about.education">Escolaridade</h3>
             <ul>
-              <li>Bacharel em Sistema de Informação</li>
-              <li>Intensivo em Desenvolvimento de Software (1187h)</li>
+              <li data-i18n="about.edu1">Bacharel em Sistema de Informação</li>
+              <li data-i18n="about.edu2">Intensivo em Desenvolvimento de Software (1187h)</li>
             </ul>
           </div>
         </div>
         <div class="text-container">
-          <p>
+          <p data-i18n-html="about.p1">
             <strong>Desenvolvedor Full Stack</strong> com forte atuação em <strong>front-end</strong>, utilizando <strong>React.js</strong>, <strong>TypeScript</strong> e <strong>Vite</strong>. Atualmente, sou responsável pelo desenvolvimento da plataforma CifraAds, um sistema de gestão de afiliados e campanhas digitais.
           </p>
-          <p>
+          <p data-i18n-html="about.p2">
             Tenho experiência na construção de dashboards analíticos, sistemas financeiros e painéis administrativos, com foco em performance, organização de código e experiência do usuário. Também possuo domínio em <strong>Zustand</strong>, <strong>React Hook Form</strong>, <strong>Zod</strong>, <strong>Tailwind CSS</strong>, integração com <strong>APIs REST</strong> e visualização de dados com <strong>Recharts</strong>.
           </p>
-          <p>
+          <p data-i18n-html="about.p3">
             Atuei como desenvolvedor <strong>back-end</strong> freelancer, sendo responsável pelo desenvolvimento completo de APIs com <strong>Node.js</strong>, incluindo modelagem de banco, deploy e uso de <strong>AWS</strong> e <strong>Supabase</strong>, além de integração com <strong>front-end</strong> e contato direto com clientes.
           </p>
-          <p>
+          <p data-i18n-html="about.p4">
             Atualmente, também colaboro com o <strong>backend</strong>, organização de tarefas e gestão de versionamento com <strong>Git</strong>, atuando de forma autônoma em ambiente de produção.
           </p>
-          <p>
+          <p data-i18n-html="about.p5">
             Tenho perfil proativo, boa comunicação e experiência trabalhando diretamente com demandas reais de negócio.
           </p>
         </div>
       </div>
     </div>
-    <button class="icon-btn arrow" aria-label="Ir para experiência" onclick="location.href='./#experience'">
+    <button class="icon-btn arrow" data-i18n-aria="about.arrow" aria-label="Ir para experiência" onclick="location.href='./#experience'">
       <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
     </button>
   </section>
   <section id="experience">
-    <p class="section__text__p1">Explore Minha</p>
-    <h1 class="title">Experiencia</h1>
+    <p class="section__text__p1" data-i18n="experience.subtitle">Explore Minha</p>
+    <h1 class="title" data-i18n="experience.title">Experiencia</h1>
     <div class="experience-details-container">
       <div class="about-containers">
         <div class="details-container">
-          <h2 class="experience-sub-title">Front-end</h2>
+          <h2 class="experience-sub-title" data-i18n="experience.frontend">Front-end</h2>
           <div class="article-container">
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>React.js</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>TypeScript</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Vite</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Tailwind CSS</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Zustand</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>React Hook Form + Zod</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
           </div>
         </div>
         <div class="details-container">
-          <h2 class="experience-sub-title">Backend</h2>
+          <h2 class="experience-sub-title" data-i18n="experience.backend">Backend</h2>
           <div class="article-container">
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>PostgreSQL</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Node JS</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>Mongodb</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>AWS</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
                 <h3>No SQL</h3>
-                <p>Experiente</p>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
             <article>
               <i class="fa-solid fa-circle-check icon" aria-hidden="true"></i>
               <div>
-                <h3>Banco de Dados</h3>
-                <p>Experiente</p>
+                <h3 data-i18n="experience.database">Banco de Dados</h3>
+                <p data-i18n="experience.skilled">Experiente</p>
               </div>
             </article>
           </div>
         </div>
       </div>
     </div>
-    <button class="icon-btn arrow" aria-label="Ir para projetos" onclick="location.href='./#projects'">
+    <button class="icon-btn arrow" data-i18n-aria="experience.arrow" aria-label="Ir para projetos" onclick="location.href='./#projects'">
       <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
     </button>
   </section>
   <section id="projects">
-    <p class="section__text__p1">Teste Meus Recentes</p>
-    <h1 class="title">Projetos</h1>
+    <p class="section__text__p1" data-i18n="projects.subtitle">Teste Meus Recentes</p>
+    <h1 class="title" data-i18n="projects.title">Projetos</h1>
     <div class="experience-details-container">
       <div class="about-containers">
         <div class="details-container color-container">
           <div class="article-container">
             <img src="./assets/project-1.png" alt="Project 1" class="project-img" loading="lazy" decoding="async" />
           </div>
-          <h2 class="experience-sub-title project-title">Gestor De Cobranças</h2>
+          <h2 class="experience-sub-title project-title" data-i18n="projects.paymentManager">Gestor De Cobranças</h2>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn"
               onclick="location.href='https://github.com/JohnFagundes/GestorDeCobrancas'">
@@ -268,7 +285,7 @@
           <div class="article-container">
             <img src="./assets/Captura de Tela (516).png" alt="Project 2" class="project-img" loading="lazy" decoding="async" />
           </div>
-          <h2 class="experience-sub-title project-title">Site de Imobiliaria</h2>
+          <h2 class="experience-sub-title project-title" data-i18n="projects.realEstate">Site de Imobiliaria</h2>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/JohnFagundes'">
               Github
@@ -282,7 +299,7 @@
           <div class="article-container">
             <img src="./assets/project-2.png" alt="Project 2" class="project-img" loading="lazy" decoding="async" />
           </div>
-          <h2 class="experience-sub-title project-title">Cubos Flix</h2>
+          <h2 class="experience-sub-title project-title" data-i18n="projects.cubosFlix">Cubos Flix</h2>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn"
               onclick="location.href='https://github.com/JohnFagundes/site-de-filmes'">
@@ -296,13 +313,13 @@
         </div>
       </div>
     </div>
-    <button class="icon-btn arrow" aria-label="Ir para contato" onclick="location.href='./#contact'">
+    <button class="icon-btn arrow" data-i18n-aria="projects.arrow" aria-label="Ir para contato" onclick="location.href='./#contact'">
       <i class="fa-solid fa-chevron-down icon" aria-hidden="true"></i>
     </button>
   </section>
   <section id="contact">
-    <p class="section__text__p1">Entre em contato</p>
-    <h1 class="title">Me Contate</h1>
+    <p class="section__text__p1" data-i18n="contact.subtitle">Entre em contato</p>
+    <h1 class="title" data-i18n="contact.title">Me Contate</h1>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <i class="fa-solid fa-envelope icon contact-icon email-icon" aria-hidden="true"></i>
@@ -318,15 +335,16 @@
     <nav>
       <div class="nav-links-container">
         <ul class="nav-links">
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#experience">Experiencia</a></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="#contact">Contatos</a></li>
+          <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projetos</a></li>
+          <li><a href="#contact" data-i18n="nav.contacts">Contatos</a></li>
         </ul>
       </div>
     </nav>
-    <p>Copyright &#169; 2023 João Victor. All Rights Reserved.</p>
+    <p data-i18n="footer.copyright">Copyright &#169; 2023 João Victor. Todos os direitos reservados.</p>
   </footer>
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 

@@ -24,10 +24,27 @@
           document.documentElement.setAttribute("data-theme", theme);
         }
         var lang = localStorage.getItem("portfolio-lang");
-        if (lang) {
-          document.documentElement.setAttribute("data-lang", lang);
-          document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+        if (!lang) {
+          var languages = navigator.languages && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language || "pt-BR"];
+          for (var i = 0; i < languages.length; i++) {
+            var code = languages[i].toLowerCase();
+            if (code.indexOf("pt") === 0) {
+              lang = "pt";
+              break;
+            }
+            if (code.indexOf("en") === 0) {
+              lang = "en";
+              break;
+            }
+          }
+          if (!lang) {
+            lang = "pt";
+          }
         }
+        document.documentElement.setAttribute("data-lang", lang);
+        document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
       } catch (error) {
       }
     })();

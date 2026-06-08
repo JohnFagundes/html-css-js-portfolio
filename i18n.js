@@ -114,6 +114,20 @@ function getSavedLang() {
   }
 }
 
+function getBrowserLang() {
+  const languages = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language || "pt-BR"];
+
+  for (const language of languages) {
+    const code = language.toLowerCase();
+    if (code.startsWith("pt")) return "pt";
+    if (code.startsWith("en")) return "en";
+  }
+
+  return DEFAULT_LANG;
+}
+
 function saveLang(lang) {
   try {
     localStorage.setItem(LANG_STORAGE_KEY, lang);
@@ -157,9 +171,8 @@ function setLanguage(lang) {
 
 function initLanguage() {
   const savedLang = getSavedLang();
-  if (savedLang && translations[savedLang]) {
-    currentLang = savedLang;
-  }
+  currentLang =
+    savedLang && translations[savedLang] ? savedLang : getBrowserLang();
   applyTranslations();
 }
 

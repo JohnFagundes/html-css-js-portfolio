@@ -536,6 +536,19 @@ section {
   position: relative;
 }
 
+#projects .about-containers {
+  justify-content: center;
+}
+
+#projects .details-container.color-container {
+  max-width: 420px;
+  width: 100%;
+}
+
+#projects .btn-container {
+  justify-content: center;
+}
+
 .color-container {
   border-color: var(--border);
   background: var(--surface-card);
